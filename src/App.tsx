@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useAuthStore } from './stores/authStore';
 import { scheduleWeeklyBackup } from './utils/backup';
@@ -24,7 +24,7 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <BrowserRouter basename="/star-uniforms">
+      <HashRouter>
         <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 text-gray-800">
           <Routes>
             <Route path="/login" element={<Login />} />
@@ -43,7 +43,7 @@ function App() {
             </Route>
           </Routes>
         </div>
-      </BrowserRouter>
+      </HashRouter>
     </QueryClientProvider>
   );
 }
